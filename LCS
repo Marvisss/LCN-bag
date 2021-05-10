@@ -10,6 +10,7 @@ int main()
 {    
     char a[MAX];
     char b[MAX];
+    char temp[MAX];
     cin>>a>>b;
     int la=strlen(a);
     int lb=strlen(b);
@@ -35,7 +36,7 @@ int main()
     }
     cout<<"最长子序列长度为："<<dp[la][lb]<<endl; 
     cout<<"最长子序列为："; 
-    int m=la,n=lb;
+    int m=la,n=lb,i=0;
     while(m&&n)
     {
     	if(c[m][n]==1){
@@ -47,10 +48,12 @@ int main()
 		}
     	else
     	{
-    		cout<<a[m-1];
+    		temp[i++]=a[m-1];
      		a[m--]=' ';
     		b[n--]=' ';	   		
 		}
 	}
+	for(int j=i-1;j>=0;j--)
+		if(temp[j]!=' ')cout<<temp[j];
     return 0;
 }
